@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <section class="layout">
+        <div class="users">
+            <h3>Usuario conectados</h3>
+            <ul id="usersList">
+              </ul> 
+        </div>
+        <div class="files">
+            <h3>Archivos disponibles</h3>
+            <ul id="filesList">
+              </ul> 
+        </div>
+        <div class="content">
+            <form id="form">
+                <input type="text" placeholder="Nombre del archivo" id="fileName">
+                <textarea name="content" id="content" cols="30" rows="10" placeholder="Escriba lo que quiera aqui"></textarea>
+                <button type="button" onclick="SendText()">Enviar</button>
+            </form>
+        </div>
+      </section>
+      
+    <script src="index.js"></script>
+</body>
+</html>

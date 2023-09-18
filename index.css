@@ -1,0 +1,31 @@
+body {
+    background-color: #5e5e5e;
+    overflow: hidden;
+}
+
+.layout {
+    width: 1366px;
+    height: 768px;
+
+    display: grid;
+    grid:
+        "users files content" 1fr / 0.2fr 0.4fr 1fr;
+    gap: 8px;
+}
+
+.layout > div {
+    background-color: #c3c3c3;
+    border-radius: 5px;
+}
+
+.users {
+    grid-area: users;
+}
+
+.files {
+    grid-area: files;
+}
+
+.content {
+    grid-area: content;
+}
