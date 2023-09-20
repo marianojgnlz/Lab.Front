@@ -4,7 +4,7 @@ body {
 }
 
 .layout {
-    width: 1366px;
+    width: 100vw;
     height: 768px;
 
     display: grid;
@@ -28,4 +28,11 @@ body {
 
 .content {
     grid-area: content;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
