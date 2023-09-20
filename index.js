@@ -5,7 +5,7 @@ const Events = {
   GET_USERS: "get-users",
   GET_FILE: "get-file",
   UPDATE_FILE: "update-file",
-  HANDLE_MESSAGE: "handle-message",
+  HANDLE_MESSAGE: "handle-message"
 };
 
 const uri = "lab-recursos-74fb64985ebf.herokuapp.com";
@@ -53,7 +53,10 @@ socket.onmessage = (m) => {
 const handleConnected = () => {
   socket.send(
     JSON.stringify({
-      event: Events.GET_FILES,
+      event: Events.HANDLE_MESSAGE,
+      message: {
+        event: Events.GET_FILES
+      }
     }),
   );
 
@@ -70,7 +73,10 @@ const handleConnected = () => {
       socket.send(
         JSON.stringify({
           event: Events.HANDLE_MESSAGE,
-          message: keyValue,
+          message: {
+            event: Events.UPDATE_FILE,
+            keyPressed: keyValue,
+          },
         }),
       );
     }
@@ -109,9 +115,12 @@ const handleFileClick = (e) => {
 
   socket.send(
     JSON.stringify({
-      event: Events.GET_FILE,
-      fileName: e.target.innerText,
-      username: myUsername,
+      event: Events.HANDLE_MESSAGE,
+      message: {
+        event: Events.GET_FILE,
+        fileName: e.target.innerText,
+        username: myUsername,
+      },
     }),
   );
 };
@@ -141,10 +150,13 @@ const SendText = () => {
 
   socket.send(
     JSON.stringify({
-      event: Events.CREATE_FILE,
-      username: myUsername,
-      message: $textArea.value,
-      fileName: $inputFileName.value,
+      event: Events.HANDLE_MESSAGE,
+      message: {
+        event: Events.CREATE_FILE,
+        username: myUsername,
+        message: $textArea.value,
+        fileName: $inputFileName.value,
+      },
     }),
   );
 
@@ -152,7 +164,10 @@ const SendText = () => {
 
   socket.send(
     JSON.stringify({
-      event: Events.GET_FILES,
+      event: Events.HANDLE_MESSAGE,
+      message: {
+        event: Events.GET_FILE,
+      },
     }),
   );
 
@@ -169,9 +184,12 @@ const createFile = () => {
 
   socket.send(
     JSON.stringify({
-      event: Events.CREATE_FILE,
-      fileName: id,
-      group: $inputGroup.value == "" ? 0 : $inputGroup.value,
+      event: Events.HANDLE_MESSAGE,
+      message: {
+        event: Events.CREATE_FILE,
+        fileName: id,
+        group: $inputGroup.value == "" ? 0 : $inputGroup.value,
+      },
     }),
   );
 };
