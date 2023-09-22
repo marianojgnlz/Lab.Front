@@ -1,25 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #5e5e5e;
-    overflow: hidden;
+    background: rgb(106,164,213);
+    background: linear-gradient(90deg, rgba(106,164,213,1) 0%, rgba(30,212,255,1) 35%, rgba(0,155,255,1) 100%);    overflow: hidden;
+    /* position: sticky; */
+    
+}
+
+header{
+    /* position: sticky; */
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    background-color:#ffffff;
+    padding: .5rem 0;
+    width: 100%;
+    border-bottom: 1px solid #00000018;
+    font-family: 'Poppins', sans-serif; 
+    top:0px;
+}
+
+
+.titulo{ 
+    font-family:  sans-serif; 
+    color: #222222;
+    font-size: 12px;
+    min-width: 170px;
+    padding: 1rem 4rem 1rem 4rem;  
+}
+
+.logo{
+    font-family: 'Pixar', sans-serif;
+    min-width: 170px;    
+    padding: 1rem 4rem 1rem 4rem;                                            
 }
 
 .layout {
-    width: 100vw;
-    height: 768px;
-
+    width: 100vw; 
+    height: 80vh; 
     display: grid;
     grid:
-        "users files content" 1fr / 0.2fr 0.4fr 1fr;
+        "users files content" 1fr / 0.4fr 0.4fr 0.8fr;
     gap: 8px;
+    padding: 1rem;
+    /* display: flex;
+    justify-content: space-around; */
 }
 
 .layout > div {
-    background-color: #c3c3c3;
+    background-color: #ffffffbb;
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif; 
+    color:#222222 ;
+    padding: 1rem;
 }
 
 .users {
     grid-area: users;
+    
 }
 
 .files {
@@ -28,11 +71,52 @@ body {
 
 .content {
     grid-area: content;
+    
 }
 
-.form {
+/* .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+} */
+
+a{
+    color: #eaeeed;
+    
 }
+
+ul{
+    padding: 1.5rem;
+    text-align: start;
+}
+h1{
+    text-align: center;
+}
+
+button{
+    border-radius: 20px;
+    line-height: 24px;
+    font-size: 12px;
+    background-color: #eaeeed;
+    font-family:  'Poppins', sans-serif; 
+    border: #2B3044;
+}
+
+button:hover{
+    background-color:  #6D58FF;
+}
+
+input{
+    background-color:transparent;
+    color: #2B3044;
+    border-bottom: 2px solid #6D58FF;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    list-style: none;
+} 
+
+.content h3{
+    padding: 0 0 1rem 0;
+} 
