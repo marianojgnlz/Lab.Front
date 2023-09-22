@@ -92,7 +92,7 @@ const handleGetFiles = (files) => {
     const $newElement = document.createElement("li");
     $newAnchor.setAttribute("href", "javascript:void(0);");
     $newAnchor.innerHTML = file;
-
+    $newElement.setAttribute("class","archivoLista")
     $newAnchor.addEventListener("click", handleFileClick);
 
     $newElement.append($newAnchor);
@@ -132,7 +132,10 @@ const handleGetUsers = (users) => {
   const $usersList = document.querySelector("#usersList");
   users.forEach((user) => {
     const $newElement = document.createElement("li");
-    $newElement.innerHTML = user;
+    const $newElement1 = document.createElement("span");
+    $newElement1.innerHTML = user;
+    $newElement.setAttribute("class","listas");
+    $newElement.append($newElement1);
     $usersList.append($newElement);
   });
 };

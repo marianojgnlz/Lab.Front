@@ -4,6 +4,24 @@
     box-sizing: border-box;
 }
 
+#cloud-intro{
+    position: relative;
+    background: url(https://static.radulescu.me/examples/clouds/clouds1000.png);
+    background: url(https://static.radulescu.me/examples/clouds/clouds1000.png) 0 200px,
+                url(https://static.radulescu.me/examples/clouds/clouds1200_1.png) 0 300px,
+                url(https://static.radulescu.me/examples/clouds/clouds1000_blur3.png) 100px 250px;
+      animation: wind 20s linear infinite;
+  }
+  @keyframes wind{
+    0% {
+      background-position: 0 200px, 0 300px, 100px 250px;
+    }
+    100% {
+      background-position: 1000px 200px, 1200px 300px, 1100px 250px;
+    }
+  
+}
+
 body {
     background: rgb(106,164,213);
     background: linear-gradient(90deg, rgba(106,164,213,1) 0%, rgba(30,212,255,1) 35%, rgba(0,155,255,1) 100%);    overflow: hidden;
@@ -82,7 +100,7 @@ header{
 } */
 
 a{
-    color: #eaeeed;
+    color: #2B3044;
     
 }
 
@@ -98,19 +116,22 @@ button{
     border-radius: 20px;
     line-height: 24px;
     font-size: 12px;
-    background-color: #eaeeed;
+    background-color: #ffffff;
     font-family:  'Poppins', sans-serif; 
     border: #2B3044;
+    padding: .3rem;
+    font-weight: bold;
 }
 
 button:hover{
-    background-color:  #6D58FF;
+    background-color:  rgb(255,235,55);
+    cursor: pointer;
 }
 
 input{
     background-color:transparent;
     color: #2B3044;
-    border-bottom: 2px solid #6D58FF;
+    border-bottom: 2px solid #2B3044;
     border-top: transparent;
     border-left: transparent;
     border-right: transparent;
@@ -120,3 +141,19 @@ input{
 .content h3{
     padding: 0 0 1rem 0;
 } 
+
+.lineaBoton{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+ul{
+    padding-left: 3rem;
+    text-align: left;
+}
+
+.listas{
+    list-style-image: url("https://img.icons8.com/?size=30&id=GtNDsBqnWPYF&format=png");
+
+}
