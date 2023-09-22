@@ -8,11 +8,11 @@ const Events = {
   HANDLE_MESSAGE: "handle-message"
 };
 
-const uri = "192.168.1.191:3030";
+const uri = "lab-recursos-74fb64985ebf.herokuapp.com";
 const myUsername = prompt("Please enter your name") || "Anonymous";
 const myGroup = prompt("Please enter your group") || "0";
 const socket = new WebSocket(
-  `ws://${uri}?username=${myUsername}&group=${myGroup}`,
+  `wss://${uri}?username=${myUsername}&group=${myGroup}`,
 );
 
 socket.onmessage = (m) => {
