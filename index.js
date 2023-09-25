@@ -9,8 +9,8 @@ const Events = {
 };
 
 const uri = "lab-recursos-74fb64985ebf.herokuapp.com";
-const myUsername = prompt("Please enter your name") || "Anonymous";
-const myGroup = prompt("Please enter your group") || "0";
+const myUsername = prompt("Hola, Ingresa tu nombre") || "Anonymous";
+const myGroup = prompt("Ingresa tu numero de grupo") || "0";
 const socket = new WebSocket(
   `wss://${uri}?username=${myUsername}&group=${myGroup}`,
 );
