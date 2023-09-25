@@ -90,12 +90,28 @@ const handleGetFiles = (files) => {
   files.forEach((file) => {
     const $newAnchor = document.createElement("a");
     const $newElement = document.createElement("li");
+    const $backupButton = document.createElement("button");
+    const $deleteButton = document.createElement("button");
+    const $div = document.createElement("div");
+    
+    $backupButton.setAttribute("id","backupButton");
+    $deleteButton.setAttribute("id","deleteButton");
+    $backupButton.setAttribute("class","cloudB");
+    $deleteButton.setAttribute("class","cloudD");
+    
+    $backupButton.innerText = "Backup";
+    $deleteButton.innerText = "Delete";
+
     $newAnchor.setAttribute("href", "javascript:void(0);");
     $newAnchor.innerHTML = file;
-    $newElement.setAttribute("class","archivoLista")
+    $newElement.setAttribute("class","guionLista");
+    $div.setAttribute("class","divGuion");
     $newAnchor.addEventListener("click", handleFileClick);
 
-    $newElement.append($newAnchor);
+    $div.append($newAnchor);
+    $div.append($backupButton);
+    $div.append($deleteButton);
+    $newElement.append($div);
     $filesList.append($newElement);
   });
 };

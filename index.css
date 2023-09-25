@@ -163,6 +163,18 @@ ul{
 
 }
 
+.guionLista{
+    list-style-image: url("pixarBall.png");
+
+}
+
+.divGuion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
 
 textarea{
     padding: 1rem;
@@ -172,3 +184,4 @@ textarea{
     width: 45vw;
     height: 45vh; 
 }
+
