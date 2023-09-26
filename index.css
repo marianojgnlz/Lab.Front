@@ -99,6 +99,10 @@ h1{
     font-family:  'Poppins', sans-serif; 
 }
 
+p{
+    padding-bottom: 1rem;
+}
+
 button{
     background-color: transparent;
     font-family:  'Poppins', sans-serif; 
@@ -214,6 +218,11 @@ ul{
     filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 }
 
+.backAll{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 textarea{
     padding: 1rem;
     font-family:  'Poppins', sans-serif; 
