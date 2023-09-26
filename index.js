@@ -5,14 +5,15 @@ const Events = {
   GET_USERS: "get-users",
   GET_FILE: "get-file",
   UPDATE_FILE: "update-file",
-  HANDLE_MESSAGE: "handle-message"
+  HANDLE_MESSAGE: "handle-message",
+  SET_FILE: "set-file"
 };
 
-const uri = "lab-recursos-74fb64985ebf.herokuapp.com";
+//const uri = "lab-recursos-74fb64985ebf.herokuapp.com";
+const uri = "192.168.1.191:3030"
 const myUsername = prompt("Hola, Ingresa tu nombre") || "Anonymous";
-const myGroup = prompt("Ingresa tu numero de grupo") || "0";
 const socket = new WebSocket(
-  `wss://${uri}?username=${myUsername}&group=${myGroup}`,
+  `ws://${uri}?username=${myUsername}`,
 );
 
 socket.onmessage = (m) => {
@@ -77,7 +78,7 @@ const handleConnected = () => {
           message: {
             event: Events.UPDATE_FILE,
             keyPressed: keyValue,
-            group: $datos.getAttribute("group-number")
+            fileClicked: $datos.getAttribute("file-clicked")
           },
         }),
       );
@@ -120,21 +121,25 @@ const handleGetFiles = (files) => {
 };
 
 const handleGetFile = (data) => {
-  const $fileName = document.querySelector("#fileName");
-  const $content = document.querySelector("#content");
-  $content.innerHTML = data.file;
-  $fileName.value = data.fileName;
+  const $content = document.querySelector("#datos");
+  $content.value = data.file;
 };
 
 const  handleUpdatedFile = (data) => {
-  console.log(data.file)
   const $datos = document.querySelector("#datos");
   $datos.value = data.file;
 };
 
 const handleFileClick = (e) => {
   const $datos = document.querySelector("#datos");
-  $datos.setAttribute("group-number", myGroup);
+  $datos.setAttribute("file-clicked", e.target.innerText);
+  socket.send(
+    JSON.stringify({
+      event: Events.SET_FILE,
+      fileClicked: e.target.innerText,
+      client: myUsername
+    }),
+  );
   socket.send(
     JSON.stringify({
       event: Events.HANDLE_MESSAGE,
