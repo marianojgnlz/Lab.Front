@@ -151,10 +151,21 @@ const handleGetUsers = (users) => {
   const $usersList = document.querySelector("#usersList");
   users.forEach((user) => {
     const $newElement = document.createElement("li");
+    const $iconos = document.createElement("div"); 
     const $newElement1 = document.createElement("span");
-    $newElement1.innerHTML = user;
+    const $divUsers = document.createElement("div");
+
+    $iconos.setAttribute("class","iconos");
+    $divUsers.setAttribute("class","listaUsers");
     $newElement.setAttribute("class","listas");
-    $newElement.append($newElement1);
+   
+    $newElement1.innerHTML = user;
+
+    $divUsers.append($iconos);
+    $divUsers.append($newElement1);
+    // $newElement.append($iconos);
+    $newElement.append($divUsers);
+    // $newElement.append($newElement1);
     $usersList.append($newElement);
   });
 };
