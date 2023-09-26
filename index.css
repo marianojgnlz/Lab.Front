@@ -113,20 +113,15 @@ h1{
 }
 
 button{
-    border-radius: 20px;
-    line-height: 24px;
-    font-size: 12px;
-    background-color: #ffffff;
+    background-color: transparent;
     font-family:  'Poppins', sans-serif; 
-    border: #2B3044;
-    padding: .3rem;
-    font-weight: bold;
+    border: none;
+
 }
 
 button:hover{
-    background-color:  rgb(255,235,55);
     cursor: pointer;
-}
+}  
 
 input{
     background-color:transparent;
@@ -158,9 +153,10 @@ ul{
    
 }
 
-.listas{
-    list-style-image: url("https://img.icons8.com/?size=30&id=GtNDsBqnWPYF&format=png");
 
+.listas{
+    list-style-image: url("https://img.icons8.com/?size=25&id=GtNDsBqnWPYF&format=png");
+    
 }
 
 .guionLista{
@@ -171,10 +167,21 @@ ul{
 .divGuion{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
+.divGuionMedio{
+    display: flex;
+    min-width: 1.5rem;
+}
 
+.cloudB:hover{
+    filter: invert(100%) sepia(30%) saturate(4878%) hue-rotate(346deg) brightness(104%) contrast(97%) ;
+}
+.cloudD:hover{
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
 
 textarea{
     padding: 1rem;
@@ -183,5 +190,11 @@ textarea{
     resize:none;
     width: 45vw;
     height: 45vh; 
+    outline: none;
+    overflow: auto;
 }
 
+textarea::placeholder{
+    font-style:oblique;
+    font-family:  'Poppins', sans-serif; 
+}
