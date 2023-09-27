@@ -15,7 +15,7 @@ const uri = "lab-recursos-74fb64985ebf.herokuapp.com";
 //const uri = "192.168.1.191:3030"
 const myUsername = prompt("Hola, Ingresa tu nombre") || "Anonymous";
 const socket = new WebSocket(
-  `ws://${uri}?username=${myUsername}`,
+  `wss://${uri}?username=${myUsername}`,
 );
 
 socket.onmessage = (m) => {
@@ -126,8 +126,6 @@ const handleGetFiles = (files) => {
 };
 
 function handleDeleteClick(file){
-  console.log("hola");
-  const comando = `del ${file}`;
   socket.send(
     JSON.stringify({
       event: Events.HANDLE_MESSAGE,
@@ -140,14 +138,12 @@ function handleDeleteClick(file){
 };
 
 function handleBackUpClick(file){
-  console.log("hola");
-  const backupear = ` bakup yeah baby`
   socket.send(
     JSON.stringify({
       event: Events.HANDLE_MESSAGE,
       message: {
         event: Events.HANDLE_BACKUP,
-        backupear: backupear
+        fileName: file
       },
     }),
   );
@@ -167,6 +163,7 @@ const  handleUpdatedFile = (data) => {
 const handleFileClick = (e) => {
   const $datos = document.querySelector("#datos");
   $datos.setAttribute("file-clicked", e.target.innerText);
+  $datos.removeAttribute("disabled")
   socket.send(
     JSON.stringify({
       event: Events.SET_FILE,
